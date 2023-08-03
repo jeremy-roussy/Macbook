@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('./startup-screen.css');
+@import url('./login-screen.css');
+@import url('./dock.css');
+@import url('./context-menu.css');
+@import url('./calculator.css');
+@import url('./terminal.css');
+@import url('./cursor.css');
+
+:root {
+    --text-shadow: 0 0 10px rgb(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;    
+    cursor: none;
+}
+
+body {
+    background-color: rgb(33, 37, 41);
+}
+
+#macbook {
+    width: 860px;
+    margin: 0 auto;
+
+    & .screen {
+        height: 580px;
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        -webkit-perspective: 2500;
+        -webkit-perspective-origin: center bottom;
+    }
+
+    & .screen-open {
+        height: 578px;
+        width: 856px;
+        position: relative;
+        border-radius: 26px 26px 10px 10px;
+        background-color: #000;
+        border: 2px solid #C8C9CC;
+        border-bottom: none;
+        box-shadow:
+            inset 0 -11px 0 0 #16191D,
+            inset 0 -12px 0 0 #111418,
+            inset 0 -13px 0 0 #262A2F,
+            inset 0 -14px 0 0 #16191D,
+            inset 0 0 0 1px #1B1E21,
+            inset 0 0 0 2px #3D4248,
+            inset 0 0 0 3px #181B1F;
+
+        transform: translateZ(-580px) rotateX(0deg);
+        transform-origin: center bottom;
+        transition: all 1s ease-in-out;
+
+        &::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 4px;
+            left: 50%;
+            margin-left: -4px;
+            top: 13px;
+            box-shadow:
+                inset 1px 1px 0 0 #0D1115,
+                inset 2px 2px 0 0 #090C0F,
+                inset 3px 3px 0 0 #0C0E12,
+                inset 4px 4px 0 0 #0B1628,
+                inset -1px -1px 0 0 #202428,
+                inset -2px -2px 0 0 #1C1F23,
+                inset -3px -3px 0 0 #15171A,
+                inset -4px -4px 0 0 #171D25;
+            background: #041423;
+            position: absolute;
+            z-index: 1000;
+        }
+    }
+
+    &.clicked .screen-open {
+        transform: translateZ(-580px) rotateX(-90deg);
+    }
+
+    & .screen-close {
+        position: absolute;
+        bottom: -5px;
+        width: 860px;
+        height: 13px;
+        background: -webkit-linear-gradient(top, #acadb3 0%, #acadb3 2%, #91939b 2%, #91939b 4%, #a7a9b0 4%, #F5F6F7 67%, #F5F6F7 100%);
+        border-radius: 150px / 9px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 2px;
+        box-shadow:
+            inset 10px 0 10px -12px #000,
+            inset 60px 0 70px -60px #FFF,
+            inset 60px 0 70px -60px #FFF,
+            inset 100px 0 150px -100px #000,
+            inset -10px 0 10px -12px #000,
+            inset -60px 0 70px -60px #FFF,
+            inset -60px 0 70px -60px #FFF,
+            inset -100px 0 150px -100px #000,
+            0 4px 0 -3px #727379,
+            0 6px 0 -4px #1A1A1C;
+
+        transform: rotateX(90deg) scale(0.9);
+        transform-origin: center bottom -580px;
+        transition: all 1s ease-in-out, bottom .1s ease-in-out;
+    }
+
+    &.clicked .screen-close {
+        bottom: 0;
+        transform: rotateX(0deg) scale(1);
+        transition: all 1s ease-in-out, bottom .1s ease-in-out .9s;
+    }
+
+    & .body {
+        position: relative;
+        width: 100%;
+        height: 27px;
+        border-radius: 30px / 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background: -webkit-linear-gradient(top, #ffffff 0%, #fefdff 2%, #dfdee3 2%, #dfdee3 58%, #adadb5 58%, #adadb5 60%, #8e8e96 60%, #8e8e96 65%, #96969e 65%, #62626a 84%, #28282a 98%, #28282a 100%);
+        box-shadow:
+            inset 10px 0 10px -12px #000,
+            inset 60px 0 70px -60px #FFF,
+            inset 60px 0 70px -60px #FFF,
+            inset 100px 0 150px -100px #000,
+            inset -10px 0 10px -12px #000,
+            inset -60px 0 70px -60px #FFF,
+            inset -60px 0 70px -60px #FFF,
+            inset -100px 0 150px -100px #000;
+
+        &::before {
+            content: "";
+            width: 120px;
+            margin-left: -60px;
+            height: 10px;
+            position: absolute;
+            background: -webkit-linear-gradient(top, #afafb7 0%, #c9cacf 31%, #ccccce 100%);
+            top: 0;
+            left: 50%;
+            border-radius: 0 0 10px 10px;
+            box-shadow:
+                inset 10px 0 10px -10px #000,
+                inset -10px 0 10px -10px #000,
+                inset 0 -10px 2px -10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.wrapper {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: white;
+    font-size: 0.85rem;
+    background: url(https://wallpapercave.com/wp/wp9139434.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 94%;
+    left: 3%;
+    height: 88%;
+    top: 6%;
+}
+
+.taskbar {
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    background: rgb(40, 40, 40, 0.25);
+    backdrop-filter: blur(15px);
+    padding: 0 0.5rem;
+    justify-content: space-between;
+    visibility: hidden;
+}
+
+.right-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    & svg {
+        color: white;
+        height: 1.25rem;
+        width: 1.25rem;
+        text-shadow: var(--text-shadow);
+    }
+
+    & #control-center {
+        height: 12px;
+        padding: 6px 0;
+    }
+
+    & span {
+        transform: translateX(5px);
+    }
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin-left: 0.5rem;
+
+    }
+
+    & li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 0.5rem;
+        text-shadow: var(--text-shadow);
+        color: white;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+            font-weight: 600;
+        }
+    }
+}
+
+#logo {
+    height: 1rem;
+}
+
+p {
+    text-shadow: var(--text-shadow);
+}
+
+.window {
+    display: none;
+    position: absolute;
+    width: 90%;
+    height: 70%;
+    margin: 2.5% 5%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgb(17 17 17) 0px 2px 5px;
+    transition: .2s;
+    z-index: 5;
+
+    &.fullScreen {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        top: 0;
+        left: 0;
+        border-radius: 0px;        
+
+        & .head,
+        & .content {
+            border-radius: 0px;
+        }
+    }
+}
+
+.head {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background-color: #EDEFF3;
+    border-bottom: 2px solid #D9D9D9;
+    border-radius: 20px 20px 0 0;
+
+    & button {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        margin: 10px 5px 10px;
+        border: rgba(0, 0, 0, 0.2) solid 0.5px;
+    }
+
+    & span {
+        font-size: .85rem;
+        width: 100%;
+        text-align: center;
+        color: black;
+        font-weight: 1000;
+    }
+}
+
+.close {
+    background-color: #FF605C;
+}
+
+.minimize {
+    background-color: #FFBD44;
+}
+
+.extend {
+    background-color: #00CA4E;
+}
+
+.content {
+    height: calc(100% - 40px);
+    border-radius: 0 0 20px 20px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 2.5px;
+}

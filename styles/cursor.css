@@ -1,0 +1,18 @@
+#pointer {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    
+    & img {
+      width: 10px;
+    }
+  }
+  
+  #selection{
+    z-index: 1;
+    background: rgba(0,0,0,0.075);
+    border: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    display: none;
+  }

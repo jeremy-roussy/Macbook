@@ -1,0 +1,38 @@
+#login-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+
+    & img {
+        width: 50px;
+        background: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 50%;
+        margin: 10px;
+        filter: invert(1);
+    }
+      
+    & input {
+        background: rgba(255,255,255,0.5);
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+        caret-color: white;
+        color: white;
+
+        &::placeholder {
+            font-weight: bold;
+            color: white;
+        }
+          
+        &:focus {
+            outline: none;
+        }
+    }
+}

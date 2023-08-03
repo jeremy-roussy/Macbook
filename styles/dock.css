@@ -1,0 +1,117 @@
+.dock {
+    width: auto;
+    height: 50px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+
+    & .dock-container {
+        padding: 3px;
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: rgba(83, 83, 83, 0.25);
+        backdrop-filter: blur(13px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & .li-bin {
+            margin-left: 20px;
+            border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+            padding: 0px 10px;
+        }     
+
+        & .li-1::after {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            content: "";
+            bottom: 2px;
+        }
+
+        & li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            vertical-align: bottom;
+            transition: 0.2s;
+            transform-origin: 50% 100%;
+
+            & .name {
+                position: absolute;
+                top: -70px;
+                background: rgba(0, 0, 0, 0.5);
+                color: rgba(255, 255, 255, 0.9);
+                height: 10px;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                visibility: hidden;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -10px;
+                    width: 0;
+                    height: 0;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 10px solid rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            & .ico {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0.2s;
+            }
+
+            & .ico-bin {
+                width: 94% !important;
+                height: 94% !important;
+                object-fit: cover;
+                transition: 0.2s;
+
+                &:hover {
+                    margin-left: 10px;
+                }
+            }
+
+            &:hover {
+                margin: 0px 13px 0px 13px;
+            }
+        }
+    }
+}
+
+.li-1:hover .name { visibility: visible !important; }
+.li-2:hover .name { visibility: visible !important; }
+.li-3:hover .name {  visibility: visible !important; }
+.li-4:hover .name { visibility: visible !important; }
+.li-5:hover .name { visibility: visible !important; }
+.li-6:hover .name { visibility: visible !important; }
+.li-7:hover .name { visibility: visible !important; }
+.li-8:hover .name { visibility: visible !important; }
+.li-9:hover .name { visibility: visible !important; }
+.li-10:hover .name { visibility: visible !important; }
+.li-11:hover .name { visibility: visible !important; }
+.li-12:hover .name { visibility: visible !important; }
+.li-13:hover .name { visibility: visible !important; }
+.li-14:hover .name { visibility: visible !important; }
+.li-15:hover .name { visibility: visible !important; }
+.li-16:hover .name { visibility: visible !important; }

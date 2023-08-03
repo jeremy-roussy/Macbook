@@ -1,0 +1,56 @@
+#loading-screen {
+    position: absolute;
+    width: 94%;
+    left: 3%;
+    height: 88%;
+    top: 6%;
+    cursor: none;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    animation: hide 15s linear forwards;
+
+    & img {
+        width: 50px;
+        margin: 50px;
+    }
+}
+
+.progress {
+    background: rgba(255, 255, 255, 0.1);
+    justify-content: flex-start;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0 5px;
+    display: flex;
+    height: 7.5px;
+    width: 150px;
+}
+
+.progress-value {
+    animation: load 15s linear forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 5px;
+    background: #fff;
+    height: 7.5px;
+}
+
+@keyframes hide {
+    100% { visibility: hidden; }
+}
+
+@keyframes load {
+    0% { width: 0; }
+    5% { width: 5%; }
+    15% { width: 5%; }
+    30% { width: 20%; }
+    40% { width: 25%; }
+    45% { width: 60%; }
+    70% { width: 65%; }
+    80% { width: 69%; }
+    95% { width: 70%; }
+    97.5% { width: 100%; }
+}
